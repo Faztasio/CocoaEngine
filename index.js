@@ -26,10 +26,10 @@
               args.push(null);
             }
           })
-          if(globals[token[1]]) {
+          if(globals[token[1]] && typeof globals[token[1]] == 'function') {
             globals[token[1]].apply(args);
           } else {
-            throw new Error('\'call\' method requires a global function.');
+            throw new Error('\'call\' method requires a function.');
             process.exit();
           }
         }
